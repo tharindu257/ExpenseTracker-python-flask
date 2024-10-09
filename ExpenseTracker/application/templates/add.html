@@ -1,0 +1,80 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="col-xs-10 col-sm-6 col-md-6">
+    <h2 style="color: #FF79C6;">Add Your Incomes and Expenses</h2>
+    <div class="card text-white bg-dark mb-3">
+        <div class="card-body">
+            <form action="" method="POST">
+                {{ form.csrf_token() }}
+                <fieldset class="form-group">
+                    <div class="form-group">
+                        {{ form.amount.label(class="form-control-label text-white") }}
+                        {% if form.amount.errors %}
+                        {{ form.amount(class="form-control form-control-sm is-invalid text-black") }}
+                        {% for error in form.amount.errors %}
+                        <div class="invalid-feedback">
+                            <span>{{ error }}</span>
+                        </div>
+                        {% endfor %}
+                        {% else %}
+                        {{ form.amount(class="form-control form-control-sm text-black") }}
+                        {% endif %}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form.type.label(class="form-control-label text-white") }}
+                        {{ form.type(class="form-control form-control-sm text-black") }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form.category.label(class="form-control-label text-white") }}
+                        {{ form.category(class="form-control form-control-sm text-black") }}
+                    </div>
+
+                    <div class="form-group border-bottom pb-3">
+                        {{ form.submit(class="btn btn-dark") }}
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    body {
+        background-color: #282a36;
+        color: #f8f8f2;
+    }
+
+    .card {
+        border: 1px solid #44475a;
+    }
+
+    .form-group label {
+        color: #f8f8f2;
+    }
+
+    .form-control {
+        background-color: #44475a;
+        color: #000000; /* Set text color to black */
+        border: 1px solid #6272a4;
+    }
+
+    .form-control:focus {
+        border-color: #8be9fd;
+        box-shadow: 0 0 0 0.2rem rgba(139, 233, 253, 0.25);
+    }
+
+    .btn-dark {
+        background-color: #6272a4;
+        border-color: #6272a4;
+        color: #f8f8f2;
+    }
+
+    .btn-dark:hover {
+        background-color: #44475a;
+        border-color: #44475a;
+    }
+</style>
+
+{% endblock %}
