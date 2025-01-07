@@ -29,7 +29,14 @@ Before running the application, make sure you have the following installed:
     ```bash/cmd
     .\env\Scripts\activate  # For Windows
 
-        envMac/bin/activate  # For Linux/Mac
+    envMac/bin/activate  # For Linux/Mac
+
+    pip install flask
+
+    pip install flask_sqlalchemy
+
+    pip install flask-wtf
+
 
 ## Running the Application
 
